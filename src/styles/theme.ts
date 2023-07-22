@@ -49,10 +49,20 @@ const fontSize = {
 
 const common = {
   flex: `display: flex;`,
-  flexCenter: `
+  flexCenterCol: `
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  `,
+  flexCenterRow: `
   display:flex;
   justify-content:center;
   align-items:center;
+  `,
+  flexBetween: `
+  display:flex;
+  justify-content:space-between;
   `,
 };
 const theme: DefaultTheme = {
