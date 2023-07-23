@@ -1,17 +1,20 @@
 import styled from 'styled-components';
+import Title from './Title';
+import TodaysDate from './TodaysDate';
 
 function HeaderTemplate() {
   return (
-    <StyledHeaderTemplate>
-      <div>뉴스스탠드</div>
-      <div>날짜</div>
+    <StyledHeaderTemplate className="header">
+      <Title />
+      <TodaysDate />
     </StyledHeaderTemplate>
   );
 }
 
 const StyledHeaderTemplate = styled.div`
-  ${({ theme }) => theme.common.flexBetween};
+  ${({ theme }) => theme.flex.flexBetween};
   width: inherit;
+  margin-bottom: 40px;
 `;
 
 export default HeaderTemplate;

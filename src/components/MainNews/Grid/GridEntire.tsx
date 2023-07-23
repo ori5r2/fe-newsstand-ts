@@ -11,7 +11,7 @@ function GridEntireTemplate() {
 }
 
 const StyledGridEntireTemplate = styled.div`
-  ${({ theme }) => theme.common.flexCenterRow}
+  ${({ theme }) => theme.flex.flexCenterRow}
 `;
 
 export default GridEntireTemplate;

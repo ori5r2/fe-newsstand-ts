@@ -17,7 +17,9 @@ const colors = {
 const fontSize = {
   bold24: `
   font-size:24px;
-  font-weight:700;`,
+  font-weight:700;
+  color: ${colors.grayscale_black};
+  `,
   bold16: `
   font-size:16px;
   font-weight:700;`,
@@ -30,7 +32,13 @@ const fontSize = {
 
   medium16: `
   font-size:16px;
-  font-weight:500;`,
+  font-weight:500;
+  `,
+  display_medium16: `
+  font-size:16px;
+  font-weight:500;
+  color: ${colors.grayscale_400};
+  `,
   medium16_hover: `
   font-size:16px;
   font-weight:500;
@@ -47,8 +55,8 @@ const fontSize = {
   font-weight:500;`,
 };
 
-const common = {
-  flex: `display: flex;`,
+const flex = {
+  flexDefault: `display: flex;`,
   flexCenterCol: `
   display:flex;
   flex-direction: column;
@@ -68,6 +76,6 @@ const common = {
 const theme: DefaultTheme = {
   colors,
   fontSize,
-  common,
+  flex,
 };
 export default theme;

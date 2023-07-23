@@ -10,7 +10,7 @@ function BannerTemplate() {
 }
 
 const StyledBannerTemplate = styled.div`
-  ${({ theme }) => theme.common.flexBetween};
+  ${({ theme }) => theme.flex.flexBetween};
 
   width: inherit;
 `;

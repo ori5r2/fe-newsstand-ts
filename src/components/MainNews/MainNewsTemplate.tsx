@@ -11,7 +11,7 @@ function MainNewsTemplate() {
 }
 
 const StyledMainNewsTemplate = styled.div`
-  ${({ theme }) => theme.common.flexCenterCol}
+  ${({ theme }) => theme.flex.flexCenterCol}
 `;
 
 export default MainNewsTemplate;
