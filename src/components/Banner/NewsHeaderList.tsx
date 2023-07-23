@@ -31,13 +31,11 @@ function NewsHeaderList({ news_data, is_right }: { news_data: NewsHeader[]; is_r
   };
 
   useEffect(() => {
-    if (!is_right) {
-      handleMouseOut();
-    } else {
-      setTimeout(() => {
-        handleMouseOut();
-      }, SYNC_TIME);
-    }
+    is_right
+      ? setTimeout(() => {
+          handleMouseOut();
+        }, SYNC_TIME)
+      : handleMouseOut();
   }, []);
 
   return (
