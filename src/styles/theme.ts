@@ -25,7 +25,9 @@ const fontSize = {
   font-weight:700;`,
   bold14: `
   font-size:14px;
-  font-weight:700;`,
+  font-weight:700;
+  color: ${colors.grayscale_black};
+  `,
   bold12: `
   font-size:14px;
   font-weight:700;`,
@@ -45,7 +47,9 @@ const fontSize = {
   text-decoration-line:underline;`,
   medium14: `
   font-size:14px;
-  font-weight:500;`,
+  font-weight:500;
+  color: ${colors.grayscale_400}
+  `,
   medium14_hover: `
   font-size:16px;
   font-weight:500;
@@ -56,7 +60,10 @@ const fontSize = {
 };
 
 const flex = {
-  flexDefault: `display: flex;`,
+  flexDefault: `
+  display: flex;
+  align-items:center;
+  `,
   flexCenterCol: `
   display:flex;
   flex-direction: column;
@@ -73,9 +80,28 @@ const flex = {
   justify-content:space-between;
   `,
 };
+
+const border = {
+  default: `border: 1px solid ${colors.grayscale_100};`,
+};
+
+const backgroundColor = {
+  surfaceAlt: ` background-color: ${colors.grayscale_50};`,
+};
+
+const hover = {
+  text_deco: ` &:hover {
+    text-decoration: underline;
+  }
+  `,
+};
+
 const theme: DefaultTheme = {
   colors,
   fontSize,
   flex,
+  border,
+  backgroundColor,
+  hover,
 };
 export default theme;
