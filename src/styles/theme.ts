@@ -22,7 +22,9 @@ const fontSize = {
   `,
   bold16: `
   font-size:16px;
-  font-weight:700;`,
+  font-weight:700;
+  color: ${colors.grayscale_black};
+  `,
   bold14: `
   font-size:14px;
   font-weight:700;
@@ -32,9 +34,10 @@ const fontSize = {
   font-size:14px;
   font-weight:700;`,
 
-  medium16: `
+  available_medium16: `
   font-size:16px;
   font-weight:500;
+  color: ${colors.grayscale_200};
   `,
   display_medium16: `
   font-size:16px;

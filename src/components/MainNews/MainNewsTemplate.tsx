@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import GridEntireTemplate from './Grid/GridEntire';
+import NavBar from './NavBar';
 
 function MainNewsTemplate() {
   return (
     <StyledMainNewsTemplate>
-      <div>네비게이션 바</div>
+      <NavBar />
       <GridEntireTemplate />
     </StyledMainNewsTemplate>
   );
