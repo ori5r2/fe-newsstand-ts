@@ -58,8 +58,10 @@ const fontSize = {
   font-weight:500;
   text-decoration-line:underline;`,
   medium12: `
-  font-size:16px;
-  font-weight:500;`,
+  font-size:12px;
+  font-weight:500;
+  color: ${colors.grayscale_200};
+  `,
 };
 
 const flex = {
@@ -86,10 +88,15 @@ const flex = {
 
 const border = {
   default: `border: 1px solid ${colors.grayscale_100};`,
+  border_tl: `
+  border-top: 1px solid ${colors.grayscale_100};
+  border-left: 1px solid ${colors.grayscale_100};
+  `,
 };
 
 const backgroundColor = {
   surfaceAlt: ` background-color: ${colors.grayscale_50};`,
+  surfaceDefault: ` background-color: ${colors.grayscale_white};`,
 };
 
 const hover = {
@@ -99,6 +106,13 @@ const hover = {
   `,
 };
 
+export type Colors = typeof colors;
+export type FontSize = typeof fontSize;
+export type Flex = typeof flex;
+export type Border = typeof border;
+export type BackgroundColor = typeof backgroundColor;
+export type Hover = typeof hover;
+
 const theme: DefaultTheme = {
   colors,
   fontSize,
@@ -107,4 +121,5 @@ const theme: DefaultTheme = {
   backgroundColor,
   hover,
 };
+
 export default theme;

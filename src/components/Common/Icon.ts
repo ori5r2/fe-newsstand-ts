@@ -1,8 +1,10 @@
 import { styled } from 'styled-components';
 
-const Icon = styled.img`
-  width: 24px;
-  height: 24px;
+type IconType = 'small' | 'big';
+
+const Icon = styled.img<{ $size: IconType }>`
+  width: ${({ $size }) => ($size === 'small' ? 12 : 24)}px;
+  height: ${({ $size }) => ($size === 'small' ? 12 : 24)}px;
 `;
 
 export default Icon;

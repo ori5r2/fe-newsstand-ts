@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import GridEntireTemplate from './Grid/GridEntire';
+import GridEntireTemplate from './Grid/GridEntireTemplate';
 import NavBar from './NavBar';
 
 function MainNewsTemplate() {
@@ -13,6 +13,7 @@ function MainNewsTemplate() {
 
 const StyledMainNewsTemplate = styled.div`
   ${({ theme }) => theme.flex.flexCenterCol}
+  width: inherit;
 `;
 
 export default MainNewsTemplate;

@@ -6,27 +6,27 @@ import { useReducer } from 'react';
 
 type Action = { type: 'CLICK_SUB' } | { type: 'CLICK_ENTIRE' } | { type: 'CLICK_GRID' } | { type: 'CLICK_LIST' };
 type State = {
-  is_sub: boolean;
-  is_grid: boolean;
+  is_subscribe_view: boolean;
+  is_grid_view: boolean;
 };
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case 'CLICK_SUB':
-      return { ...state, is_sub: true };
+      return { ...state, is_subscribe_view: true };
     case 'CLICK_ENTIRE':
-      return { ...state, is_sub: false };
+      return { ...state, is_subscribe_view: false };
     case 'CLICK_GRID':
-      return { ...state, is_grid: true };
+      return { ...state, is_grid_view: true };
     case 'CLICK_LIST':
-      return { ...state, is_grid: false };
+      return { ...state, is_grid_view: false };
     default:
       throw new Error('Main Nav Bar error');
   }
 }
 
 function NavBar() {
-  const [state, dispatch] = useReducer(reducer, { is_sub: false, is_grid: true });
+  const [state, dispatch] = useReducer(reducer, { is_subscribe_view: false, is_grid_view: true });
 
   const onClickEntire = () => dispatch({ type: 'CLICK_ENTIRE' });
   const onClickSub = () => dispatch({ type: 'CLICK_SUB' });
@@ -36,16 +36,28 @@ function NavBar() {
   return (
     <StyledNavBar>
       <StyledNavBarLeft>
-        <StyledTapBtn $is_clicked={!state.is_sub} onClick={onClickEntire}>
+        <StyledTapBtn $is_clicked={!state.is_subscribe_view} onClick={onClickEntire}>
           전체 언론사
         </StyledTapBtn>
-        <StyledTapBtn $is_clicked={state.is_sub} onClick={onClickSub}>
+        <StyledTapBtn $is_clicked={state.is_subscribe_view} onClick={onClickSub}>
           내가 구독한 언론사
         </StyledTapBtn>
       </StyledNavBarLeft>
       <StyledNavBarRight>
-        <StyledIcon src={list_view} alt="list_view" $is_clicked={!state.is_grid} onClick={onClickList} />
-        <StyledIcon src={grid_view} alt="grid_view" $is_clicked={state.is_grid} onClick={onClickGrid} />
+        <StyledIcon
+          src={list_view}
+          alt="list_view_icon"
+          $size="big"
+          $is_clicked={!state.is_grid_view}
+          onClick={onClickList}
+        />
+        <StyledIcon
+          src={grid_view}
+          alt="grid_view_icon"
+          $size="big"
+          $is_clicked={state.is_grid_view}
+          onClick={onClickGrid}
+        />
       </StyledNavBarRight>
     </StyledNavBar>
   );
@@ -53,7 +65,8 @@ function NavBar() {
 
 const StyledNavBar = styled.div`
   ${({ theme }) => theme.flex.flexBetween};
-  width: 100%;
+  width: inherit;
+  margin-bottom: 24px;
 `;
 
 const StyledNavBarLeft = styled.div`

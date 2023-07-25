@@ -5,7 +5,7 @@ import newspaper from '@assets/icons/newspaper.svg';
 function Title() {
   return (
     <StyledTitle className="header-title">
-      <Icon src={newspaper} alt="newspaper-icon" />
+      <Icon src={newspaper} alt="newspaper-icon" $size="big" />
       <div>뉴스스탠드</div>
     </StyledTitle>
   );
