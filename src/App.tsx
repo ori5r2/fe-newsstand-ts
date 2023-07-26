@@ -14,7 +14,7 @@ function App() {
 }
 
 const StyledApp = styled.div`
-  ${({ theme }) => theme.flex.flexCenterCol};
+  ${({ theme }) => theme.flex.flex_center_col};
   width: 930px;
 `;
 

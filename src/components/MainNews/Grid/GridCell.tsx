@@ -60,15 +60,17 @@ function GridCell({ press_info, sub_list, setSubList, is_right, is_bottom }: Gri
 }
 
 const StyledGridCell = styled.li<{ $is_right?: boolean; $is_bottom?: boolean }>`
-  ${({ theme }) => theme.flex.flexCenterRow};
-  ${({ theme }) => theme.border.border_tl};
+  ${({ theme }) => `
+    ${theme.flex.flex_center_row};
+    ${theme.colorLightSystem.border_default};
+  `};
+
+  border-right: ${(props) => props.$is_right && 'none'};
+  border-bottom: ${(props) => props.$is_bottom && 'none'};
+
   list-style-type: none;
-
-  border-right: ${(props) => props.$is_right && `1px solid #d2dae0`};
-  border-bottom: ${(props) => props.$is_bottom && `1px solid #d2dae0`};
-
   &:hover {
-    ${({ theme }) => theme.backgroundColor.surfaceAlt}
+    ${({ theme }) => theme.colorLightSystem.surface_alt}
   }
 `;
 

@@ -1,13 +1,12 @@
 import 'styled-components';
-import type { Colors, FontSize, Flex, Border, BackgroundColor, Hover } from './theme.ts';
+import type { Colors, ColorLightSystem, FontSize, Flex, Hover } from './theme.ts';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: Colors;
+    colorLightSystem: ColorLightSystem;
     fontSize: FontSize;
     flex: Flex;
-    border: Border;
-    backgroundColor: BackgroundColor;
     hover: Hover;
   }
 }

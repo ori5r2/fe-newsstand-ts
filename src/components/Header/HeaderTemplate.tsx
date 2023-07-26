@@ -12,7 +12,7 @@ function HeaderTemplate() {
 }
 
 const StyledHeaderTemplate = styled.div`
-  ${({ theme }) => theme.flex.flexBetween};
+  ${({ theme }) => theme.flex.flex_between};
   width: inherit;
   margin-bottom: 40px;
 `;

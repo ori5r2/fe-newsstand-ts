@@ -60,8 +60,11 @@ const StyledList = styled.ul`
 `;
 
 const StyledListContent = styled.li<StyledProps>`
-  ${({ theme }) => theme.fontSize.medium14};
-  ${({ theme }) => theme.flex.flexDefault};
+  ${({ theme }) => `
+    ${theme.flex.flex_default};
+    ${theme.fontSize.medium14};
+    ${theme.colorLightSystem.text_default};
+  `};
 
   width: 359px; //??
   height: ${LIST_HEIGHT}px;

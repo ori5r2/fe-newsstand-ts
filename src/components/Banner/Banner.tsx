@@ -12,15 +12,20 @@ function Banner({ rolling_data, is_right }: { rolling_data: RollingNews; is_righ
 }
 
 const StyledBanner = styled.div`
-  ${({ theme }) => theme.flex.flexCenterRow};
-  ${({ theme }) => theme.border.default};
-  ${({ theme }) => theme.backgroundColor.surfaceAlt};
+  ${({ theme }) => `
+    ${theme.flex.flex_center_row};
+    ${theme.colorLightSystem.border_default};
+    ${theme.colorLightSystem.surface_alt};
+  `}
   gap: 16px;
   padding: 0 16px;
 `;
 
 const StylePressName = styled.div`
-  ${({ theme }) => theme.fontSize.bold14};
+  ${({ theme }) => `
+    ${theme.fontSize.bold14};
+    ${theme.colorLightSystem.text_strong};
+  `};
 `;
 
 export default Banner;

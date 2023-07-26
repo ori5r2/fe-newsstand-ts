@@ -12,8 +12,11 @@ function Title() {
 }
 
 const StyledTitle = styled.div`
-  ${({ theme }) => theme.flex.flexCenterRow};
-  ${({ theme }) => theme.fontSize.bold24};
+  ${({ theme }) => `
+    ${theme.flex.flex_center_row};
+    ${theme.fontSize.bold24};
+    ${theme.colorLightSystem.text_strong};
+  `}
   gap: 8px;
 `;
 

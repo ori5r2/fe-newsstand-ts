@@ -21,10 +21,13 @@ function SubscribeBtn({ id, is_subscribe, ...restProps }: Props) {
 }
 
 const StyledButton = styled.button`
-  ${({ theme }) => theme.flex.flexCenterRow}
-  ${({ theme }) => theme.border.default}
-  ${({ theme }) => theme.backgroundColor.surfaceDefault}
-  ${({ theme }) => theme.fontSize.medium12}
+  ${({ theme }) => `
+    ${theme.flex.flex_center_row};
+    ${theme.colorLightSystem.border_default};
+    ${theme.colorLightSystem.surface_default};
+    ${theme.fontSize.medium12};
+    ${theme.colorLightSystem.text_weak}
+  `}
 
   padding: 0px 6px;
   height: 24px;

@@ -36,7 +36,7 @@ function BannerTemplate() {
 }
 
 const StyledBannerTemplate = styled.div`
-  ${({ theme }) => theme.flex.flexBetween};
+  ${({ theme }) => theme.flex.flex_between};
   width: inherit;
   margin-bottom: 32px;
   gap: 8px;

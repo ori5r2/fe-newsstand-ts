@@ -26,12 +26,12 @@ function GridEntireTemplate({ mode }: { mode: boolean }) {
   };
 
   const drawCell = (idx: number) => {
-    if (idx === 23) return [true, true];
-    else if (idx % ROW_SIZE === ROW_SIZE - 1) return [true, false];
+    if (idx === 23) return [false, false];
+    else if (idx % ROW_SIZE === ROW_SIZE - 1) return [false, true];
     else if (Array.from({ length: ROW_SIZE }, (v, i) => ROW_SIZE * (COL_SIZE - 1) + i).includes(idx))
-      return [false, true];
+      return [true, false];
 
-    return [false, false];
+    return [true, true];
   };
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function GridEntireTemplate({ mode }: { mode: boolean }) {
 }
 
 const StyledGridEntireTemplate = styled.div<{ $mode: boolean }>`
-  ${({ theme }) => theme.flex.flexCenterRow}
+  ${({ theme }) => theme.flex.flex_center_row}
   display: ${({ $mode }) => !$mode && 'none'};
 `;
 
@@ -86,10 +86,10 @@ const StyledMainNews = styled.div`
 `;
 
 const StyledEmptyGrid = styled.div<{ $is_right?: boolean; $is_bottom?: boolean }>`
-  ${({ theme }) => theme.border.border_tl};
+  ${({ theme }) => theme.colorLightSystem.border_default};
 
-  border-right: ${(props) => props.$is_right && `1px solid #d2dae0`};
-  border-bottom: ${(props) => props.$is_bottom && `1px solid #d2dae0`};
+  border-right: ${(props) => props.$is_right && 'none'};
+  border-bottom: ${(props) => props.$is_bottom && 'none'};
 `;
 
 export default GridEntireTemplate;

@@ -31,7 +31,7 @@ function MainNewsTemplate() {
 }
 
 const StyledMainNewsTemplate = styled.div`
-  ${({ theme }) => theme.flex.flexCenterCol}
+  ${({ theme }) => theme.flex.flex_center_col}
   width: inherit;
 `;
 

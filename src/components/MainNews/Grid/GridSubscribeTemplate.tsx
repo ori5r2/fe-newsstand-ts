@@ -12,7 +12,7 @@ function GridSubscribeTemplate({ mode }: { mode: boolean }) {
 }
 
 const StyledGridSubscribeTemplate = styled.div<{ $mode: boolean }>`
-  ${({ theme }) => theme.flex.flexCenterRow}
+  ${({ theme }) => theme.flex.flex_center_row}
   display: ${({ $mode }) => !$mode && 'none'};
 `;
 

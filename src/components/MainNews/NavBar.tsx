@@ -4,6 +4,7 @@ import list_view from '@assets/icons/list_view.svg';
 import grid_view from '@assets/icons/grid_view.svg';
 import { useEffect, useReducer } from 'react';
 import type { ModeType, NavBarProps } from './MainInterface';
+import theme from '@styles/theme';
 
 type Action = { type: 'CLICK_SUB' } | { type: 'CLICK_ENTIRE' } | { type: 'CLICK_GRID' } | { type: 'CLICK_LIST' };
 
@@ -65,25 +66,32 @@ function NavBar({ changeMode }: NavBarProps) {
 }
 
 const StyledNavBar = styled.div`
-  ${({ theme }) => theme.flex.flexBetween};
+  ${({ theme }) => theme.flex.flex_between};
   width: inherit;
   margin-bottom: 24px;
 `;
 
 const StyledNavBarLeft = styled.div`
-  ${({ theme }) => theme.flex.flexCenterRow};
-  ${({ theme }) => theme.fontSize.available_medium16};
+  ${({ theme }) => `
+    ${theme.flex.flex_center_row};
+    ${theme.fontSize.medium16};
+    ${theme.colorLightSystem.text_weak};
+  `};
   gap: 24px;
 `;
 
 // TODO: theme 불러오는 방법?
 const StyledTapBtn = styled.div<{ $is_clicked: boolean }>`
-  color: ${(props) => props.$is_clicked && '#14212b'};
-  font-weight: ${(props) => props.$is_clicked && '700'};
+  ${({ theme, $is_clicked }) =>
+    $is_clicked &&
+    `
+    ${theme.colorLightSystem.text_strong};
+    ${theme.fontSize.bold16};
+  `}
 `;
 
 const StyledNavBarRight = styled.div`
-  ${({ theme }) => theme.flex.flexCenterRow};
+  ${({ theme }) => theme.flex.flex_center_row};
   gap: 8px;
 `;
 

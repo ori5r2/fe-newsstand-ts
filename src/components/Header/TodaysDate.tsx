@@ -18,15 +18,14 @@ function TodaysDate() {
     weekday: 'long',
   };
 
-  return (
-    <StyledDate className="header-date">
-      {date.toLocaleDateString('ko-kr', options)}
-    </StyledDate>
-  );
+  return <StyledDate className="header-date">{date.toLocaleDateString('ko-kr', options)}</StyledDate>;
 }
 
 const StyledDate = styled.div`
-  ${({ theme }) => theme.fontSize.display_medium16};
+  ${({ theme }) => `
+    ${theme.fontSize.display_medium16};
+    ${theme.colorLightSystem.text_default};
+  `}
 `;
 
 export default TodaysDate;
