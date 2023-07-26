@@ -2,20 +2,18 @@ import Icon from './Icon';
 import plus from '@assets/icons/plus.svg';
 import closed from '@assets/icons/closed.svg';
 import styled from 'styled-components';
+import { ButtonHTMLAttributes } from 'react';
 
-interface Props {
+interface ButtonProps {
   id: number;
   is_subscribe: boolean;
-  onClick(): void;
 }
 
-function SubscribeBtn({ id, is_subscribe, onClick }: Props) {
-  const handleClick = () => {
-    onClick();
-  };
+type Props = ButtonProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof ButtonProps>;
 
+function SubscribeBtn({ id, is_subscribe, ...restProps }: Props) {
   return (
-    <StyledButton onClick={handleClick}>
+    <StyledButton {...restProps}>
       <Icon $size="small" src={is_subscribe ? closed : plus} alt="plus-icon" />
       {is_subscribe ? '해지하기' : '구독하기'}
     </StyledButton>
