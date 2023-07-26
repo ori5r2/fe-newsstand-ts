@@ -1,19 +1,12 @@
-import styled from 'styled-components';
-import ArrowBtn from '@components/Common/ArrowBtn';
+import GridTemplate from './GridTemplate';
+import { press_list } from '../pressListData';
 
 function GridSubscribeTemplate({ mode }: { mode: boolean }) {
-  return (
-    <StyledGridSubscribeTemplate $mode={mode}>
-      <ArrowBtn $is_right={false} $is_visible={true} />
-      grid subscribe
-      <ArrowBtn $is_right={true} $is_visible={true} />
-    </StyledGridSubscribeTemplate>
-  );
-}
+  const localStore = localStorage.getItem('subscribe_list');
+  const localDataIdx: number[] = localStore && JSON.parse(localStore);
+  const localPressList = press_list.filter((press) => localDataIdx.includes(press.id));
 
-const StyledGridSubscribeTemplate = styled.div<{ $mode: boolean }>`
-  ${({ theme }) => theme.flex.flex_center_row}
-  display: ${({ $mode }) => !$mode && 'none'};
-`;
+  return <GridTemplate mode={mode} press_info_list={localPressList} />;
+}
 
 export default GridSubscribeTemplate;
