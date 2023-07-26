@@ -9,7 +9,7 @@ const ROW_SIZE = 6;
 const TOTAL_SIZE = COL_SIZE * ROW_SIZE;
 const MAX_PAGE = Math.ceil(press_list.length / TOTAL_SIZE);
 
-function GridEntireTemplate() {
+function GridEntireTemplate({ mode }: { mode: boolean }) {
   const [pageNum, setPageNum] = useState<number>(0);
   const [subList, setSubList] = useState<number[]>([]);
 
@@ -41,7 +41,7 @@ function GridEntireTemplate() {
   }, []);
 
   return (
-    <StyledGridEntireTemplate>
+    <StyledGridEntireTemplate $mode={mode}>
       <ArrowBtn $is_right={false} onClick={onClickLeftBtn} $is_visible={pageNum ? true : false} />
       <StyledMainNews>
         {press_list.slice(pageNum * TOTAL_SIZE, (pageNum + 1) * TOTAL_SIZE).map((press, key) => {
@@ -71,8 +71,9 @@ function GridEntireTemplate() {
   );
 }
 
-const StyledGridEntireTemplate = styled.div`
+const StyledGridEntireTemplate = styled.div<{ $mode: boolean }>`
   ${({ theme }) => theme.flex.flexCenterRow}
+  display: ${({ $mode }) => !$mode && 'none'};
 `;
 
 const StyledMainNews = styled.div`

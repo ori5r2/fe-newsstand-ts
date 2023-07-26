@@ -36,16 +36,8 @@ function GridCell({ press_info, sub_list, setSubList, is_right, is_bottom }: Gri
   const onMouseOver = () => dispatch({ type: 'MOUSE_OVER' });
   const onMouseOut = () => dispatch({ type: 'MOUSE_OUT' });
   const onClick = () => {
-    if (state.is_subscribe) {
-      console.log('해지');
-      const new_list = sub_list.filter((id) => id !== press_info.id);
-      setSubList(new_list);
-    } else {
-      console.log('구독');
-      sub_list.push(press_info.id);
-      setSubList(sub_list);
-    }
-    // state.is_subscribe ? sub_list.filter((id) => id !== press_info.id) : sub_list.push(press_info.id);
+    const new_list = state.is_subscribe ? sub_list.filter((id) => id !== press_info.id) : [...sub_list, press_info.id];
+    setSubList(new_list);
     dispatch({ type: 'CLICK_BTN' });
   };
   const setState = (state: boolean) => dispatch({ type: 'SET_SUBSCRIBE', payload: state });

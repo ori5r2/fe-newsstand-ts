@@ -2,15 +2,12 @@ import styled from 'styled-components';
 import Icon from '@components/Common/Icon';
 import list_view from '@assets/icons/list_view.svg';
 import grid_view from '@assets/icons/grid_view.svg';
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
+import type { ModeType, NavBarProps } from './MainInterface';
 
 type Action = { type: 'CLICK_SUB' } | { type: 'CLICK_ENTIRE' } | { type: 'CLICK_GRID' } | { type: 'CLICK_LIST' };
-type State = {
-  is_subscribe_view: boolean;
-  is_grid_view: boolean;
-};
 
-function reducer(state: State, action: Action): State {
+function reducer(state: ModeType, action: Action): ModeType {
   switch (action.type) {
     case 'CLICK_SUB':
       return { ...state, is_subscribe_view: true };
@@ -25,13 +22,17 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-function NavBar() {
+function NavBar({ changeMode }: NavBarProps) {
   const [state, dispatch] = useReducer(reducer, { is_subscribe_view: false, is_grid_view: true });
 
   const onClickEntire = () => dispatch({ type: 'CLICK_ENTIRE' });
   const onClickSub = () => dispatch({ type: 'CLICK_SUB' });
   const onClickGrid = () => dispatch({ type: 'CLICK_GRID' });
   const onClickList = () => dispatch({ type: 'CLICK_LIST' });
+
+  useEffect(() => {
+    changeMode(state);
+  }, [state]);
 
   return (
     <StyledNavBar>
